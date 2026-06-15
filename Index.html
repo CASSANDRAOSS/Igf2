@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGF-Prototyp</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+}
+
+header {
+  background: #263238;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.layer {
+  border-left: 8px solid #455a64;
+}
+
+.warning {
+  background: #fff3cd;
+  border-left: 8px solid #ffca28;
+}
+
+.success {
+  background: #e8f5e9;
+  border-left: 8px solid #66bb6a;
+}
+
+button {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #455a64;
+  color: white;
+  cursor: pointer;
+  margin: 0.3rem;
+  font-size: 1rem;
+}
+
+button:focus {
+  outline: 4px solid #ffb300;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 20px;
+  background: #e0e0e0;
+  margin: 0.2rem;
+}
+
+.switch-box {
+  text-align: center;
+  margin: 2rem;
+}
+
+.progress {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 28px;
+}
+
+.progress-bar {
+  width: 64%;
+  height: 100%;
+  background: #607d8b;
+  text-align: center;
+  color: white;
+  line-height: 28px;
+}
+
+.hidden {
+  display: none;
+}
+
+.comparison {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.phone {
+  width: 320px;
+  min-height: 620px;
+  background: white;
+  border: 12px solid #222;
+  border-radius: 36px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.phone h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.mini-card {
+  background: #f8f9fa;
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+}
+
+.bad-example {
+  border-color: #7a1f1f;
+}
+
+.good-example {
+  border-color: #1f5f9f;
+}
+
+.danger {
+  background: #ffe5e5;
+  border-left: 6px solid #c62828;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.feedback {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+@media (max-width: 760px) {
+  .comparison {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone {
+    width: 88%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Inclusive Gamification Framework</h1>
+  <p>Ein Prototyp zur Verbindung von Gamification, Barrierefreiheit und User Experience</p>
+</header>
+
+<main>
+
+<section id="startseite">
+
+  <div class="switch-box">
+    <button onclick="showGamifiedView()">
+      Barrierefreie & gamifizierte Live-Ansicht öffnen
+    </button>
+  </div>
+
+  <section class="card layer">
+    <h2>1. Analyse-Schicht</h2>
+    <p>
+      In dieser Schicht wird geprüft, welche Barrieren in einer Anwendung entstehen können.
+      Dazu gehören zum Beispiel Zeitdruck, rein visuelles Feedback oder unklare Bedienwege.
+    </p>
+
+    <h3>Checkliste</h3>
+    <label><input type="checkbox"> Sind alle Inhalte per Tastatur erreichbar?</label><br>
+    <label><input type="checkbox"> Gibt es Alternativen zu rein visuellen Signalen?</label><br>
+    <label><input type="checkbox"> Kann Zeitdruck reduziert oder ausgeschaltet werden?</label><br>
+    <label><input type="checkbox"> Sind Texte verständlich formuliert?</label>
+  </section>
+
+  <section class="card layer">
+    <h2>2. Adaptions-Schicht</h2>
+    <p>
+      Hier werden problematische Gamification-Elemente angepasst.
+      Ziel ist nicht, Gamification zu entfernen, sondern sie inklusiver zu gestalten.
+    </p>
+
+    <p><span class="badge">Timer</span> → elastische Zeitvorgaben</p>
+    <p><span class="badge">Leaderboard</span> → persönlicher Fortschritt</p>
+    <p><span class="badge">Badge</span> → visuelles, textliches und akustisches Feedback</p>
+  </section>
+
+  <section class="card layer">
+    <h2>3. Validierungs-Schicht</h2>
+    <p>
+      Am Ende wird geprüft, ob die Anwendung wirklich zugänglicher und angenehmer nutzbar ist.
+      Dazu können Walkthroughs, Nutzerfeedback oder Fragebögen eingesetzt werden.
+    </p>
+
+    <div class="progress" aria-label="Fortschritt der Validierung">
+      <div class="progress-bar">65%</div>
+    </div>
+  </section>
+
+</section>
+
+<section id="gamifiedView" class="hidden">
+
+  <div class="switch-box">
+    <button onclick="showStartView()">Zurück zur Startseite</button>
+  </div>
+
+  <section class="card success">
+    <h2>Live-Vergleich: Klassisch vs. IGF</h2>
+    <p>
+      Hier wird das Framework praktisch sichtbar. Links steht eine klassische,
+      eher problematische Gamification-Ansicht. Rechts steht eine barriereärmere
+      IGF-Variante.
+    </p>
+  </section>
+
+  <section class="comparison">
+
+    <div class="phone bad-example">
+      <h2>Klassisch</h2>
+      <h3>Hallo Anna 👋</h3>
+      <p>Schnell! Du hast nur noch 30 Sekunden.</p>
+
+      <div class="mini-card danger">
+        <h4>Timer</h4>
+        <p>00:30</p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Leaderboard</h4>
+        <ol>
+          <li>Max – 980 XP</li>
+          <li>Lisa – 870 XP</li>
+          <li>Anna – 320 XP</li>
+        </ol>
+      </div>
+
+      <div class="mini-card">
+        <h4>Badge</h4>
+        <p>🏆 Neues Abzeichen!</p>
+        <p class="small">Nur farblich und visuell hervorgehoben.</p>
+      </div>
+
+      <button>Jetzt weiter</button>
+    </div>
+
+    <div class="phone good-example">
+      <h2>Inklusiv (IGF)</h2>
+      <h3>Hallo Anna 👋</h3>
+      <p>Schön, dass du weiter lernst. Du kannst in deinem Tempo arbeiten.</p>
+
+      <div class="mini-card">
+        <h4>Dein Fortschritt</h4>
+        <p>Level 4 <span style="float:right;">320 / 500 XP</span></p>
+        <div class="progress">
+          <div class="progress-bar">64%</div>
+        </div>
+        <p class="small">Nächstes Level: 180 XP</p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Aktuelle Lektion</h4>
+        <p>Brüche verstehen</p>
+        <button onclick="checkAnswer()">Weiterlernen</button>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Audio-Optionen</h4>
+        <p>🔊 Inhalte können vorgelesen werden.</p>
+        <label>
+          <input type="checkbox" checked>
+          Vorlesen aktiviert
+        </label>
+      </div>
+
+      <div class="mini-card">
+        <h4>Deine Entwicklung</h4>
+        <p>Diese Woche</p>
+        <p>Mo ▂ Di ▃ Mi ▅ Do ▄ Fr ▆ So █</p>
+        <p>⭐ Super! Dranbleiben!</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="card layer">
+    <h2>Was wurde durch das IGF verbessert?</h2>
+    <p>
+      Der feste Timer wurde entfernt. Statt eines öffentlichen Rankings wird
+      persönlicher Fortschritt angezeigt. Das Badge wird nicht nur visuell
+      vermittelt, sondern zusätzlich erklärt. Dadurch bleibt Gamification erhalten,
+      wirkt aber weniger ausschließend.
+    </p>
+  </section>
+
+</section>
+
+</main>
+
+<script>
+function showGamifiedView() {
+  document.getElementById("startseite").classList.add("hidden");
+  document.getElementById("gamifiedView").classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+function showStartView() {
+  document.getElementById("gamifiedView").classList.add("hidden");
+  document.getElementById("startseite").classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+function checkAnswer() {
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = "Gut gemacht. Die IGF-Ansicht nutzt persönlichen Fortschritt, Textfeedback und optionale Unterstützung statt Druck und Vergleich.";
+}
+</script>
+
+</body>
+</html>

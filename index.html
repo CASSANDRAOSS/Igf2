@@ -22,14 +22,14 @@ header {
 }
 
 main {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 2rem auto;
   padding: 1rem;
 }
 
 .card {
   background: white;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
@@ -39,29 +39,38 @@ main {
   border-left: 8px solid #455a64;
 }
 
-.warning {
-  background: #fff3cd;
-  border-left: 8px solid #ffca28;
-}
-
 .success {
   background: #e8f5e9;
   border-left: 8px solid #66bb6a;
 }
 
+.warning {
+  background: #fff3cd;
+  border-left: 8px solid #ffca28;
+}
+
 button {
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #455a64;
   color: white;
   cursor: pointer;
-  margin: 0.3rem;
   font-size: 1rem;
+  margin: 0.3rem;
 }
 
-button:focus {
+button:focus, input:focus {
   outline: 4px solid #ffb300;
+}
+
+.switch-box {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .badge {
@@ -72,42 +81,16 @@ button:focus {
   margin: 0.2rem;
 }
 
-.switch-box {
-  text-align: center;
-  margin: 2rem;
-}
-
-.progress {
-  background: #ddd;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 28px;
-}
-
-.progress-bar {
-  width: 64%;
-  height: 100%;
-  background: #607d8b;
-  text-align: center;
-  color: white;
-  line-height: 28px;
-}
-
-.hidden {
-  display: none;
-}
-
 .comparison {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .phone {
   width: 320px;
-  min-height: 620px;
+  min-height: 600px;
   background: white;
   border: 12px solid #222;
   border-radius: 36px;
@@ -120,14 +103,6 @@ button:focus {
   margin-top: 0;
 }
 
-.mini-card {
-  background: #f8f9fa;
-  border-radius: 14px;
-  padding: 1rem;
-  margin: 1rem 0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.12);
-}
-
 .bad-example {
   border-color: #7a1f1f;
 }
@@ -136,9 +111,33 @@ button:focus {
   border-color: #1f5f9f;
 }
 
+.mini-card {
+  background: #f8f9fa;
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+}
+
 .danger {
   background: #ffe5e5;
   border-left: 6px solid #c62828;
+}
+
+.progress {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 28px;
+}
+
+.progress-bar {
+  width: 64%;
+  height: 100%;
+  background: #1976d2;
+  color: white;
+  text-align: center;
+  line-height: 28px;
 }
 
 .small {
@@ -146,18 +145,73 @@ button:focus {
   color: #555;
 }
 
+.demo-layout {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.demo-app {
+  width: 360px;
+  background: white;
+  border: 12px solid #111;
+  border-radius: 38px;
+  padding: 1.3rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+.demo-panel {
+  flex: 1;
+  min-width: 280px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-button {
+  background: #e3f2fd;
+  color: #0d47a1;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+}
+
+.option-row {
+  background: #f1f5f8;
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin: 0.7rem 0;
+}
+
+.quiz-option {
+  display: block;
+  background: #eef2f3;
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin: 0.6rem 0;
+}
+
 .feedback {
   font-weight: bold;
   margin-top: 1rem;
 }
 
-@media (max-width: 760px) {
-  .comparison {
-    flex-direction: column;
-    align-items: center;
-  }
+.timer-box {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: #e3f2fd;
+  padding: 0.8rem;
+  border-radius: 12px;
+  text-align: center;
+}
 
-  .phone {
+@media (max-width: 760px) {
+  .phone, .demo-app {
     width: 88%;
   }
 }
@@ -183,63 +237,28 @@ button:focus {
 <section id="startseite">
 
   <div class="switch-box">
-    <button onclick="showGamifiedView()">
-      Barrierefreie & gamifizierte Live-Ansicht öffnen
-    </button>
+    <button onclick="showDemoView()">IGF-Live-Demo öffnen</button>
   </div>
 
   <section class="card layer">
-    <h2>1. Analyse-Schicht</h2>
+    <h2>Was ist das IGF?</h2>
     <p>
-      In dieser Schicht wird geprüft, welche Barrieren in einer Anwendung entstehen können.
-      Dazu gehören zum Beispiel Zeitdruck, rein visuelles Feedback oder unklare Bedienwege.
+      Das Inclusive Gamification Framework zeigt, wie Gamification so gestaltet werden kann,
+      dass sie motiviert, ohne Menschen durch Zeitdruck, Rankings oder rein visuelles Feedback auszuschließen.
     </p>
-
-    <h3>Checkliste</h3>
-    <label><input type="checkbox"> Sind alle Inhalte per Tastatur erreichbar?</label><br>
-    <label><input type="checkbox"> Gibt es Alternativen zu rein visuellen Signalen?</label><br>
-    <label><input type="checkbox"> Kann Zeitdruck reduziert oder ausgeschaltet werden?</label><br>
-    <label><input type="checkbox"> Sind Texte verständlich formuliert?</label>
   </section>
 
   <section class="card layer">
-    <h2>2. Adaptions-Schicht</h2>
-    <p>
-      Hier werden problematische Gamification-Elemente angepasst.
-      Ziel ist nicht, Gamification zu entfernen, sondern sie inklusiver zu gestalten.
-    </p>
-
-    <p><span class="badge">Timer</span> → elastische Zeitvorgaben</p>
-    <p><span class="badge">Leaderboard</span> → persönlicher Fortschritt</p>
-    <p><span class="badge">Badge</span> → visuelles, textliches und akustisches Feedback</p>
+    <h2>Die drei Schichten</h2>
+    <p><span class="badge">Analyse</span> Barrieren erkennen</p>
+    <p><span class="badge">Adaption</span> Gamification-Elemente barriereärmer anpassen</p>
+    <p><span class="badge">Validierung</span> Nutzung prüfen und verbessern</p>
   </section>
-
-  <section class="card layer">
-    <h2>3. Validierungs-Schicht</h2>
-    <p>
-      Am Ende wird geprüft, ob die Anwendung wirklich zugänglicher und angenehmer nutzbar ist.
-      Dazu können Walkthroughs, Nutzerfeedback oder Fragebögen eingesetzt werden.
-    </p>
-
-    <div class="progress" aria-label="Fortschritt der Validierung">
-      <div class="progress-bar">65%</div>
-    </div>
-  </section>
-
-</section>
-
-<section id="gamifiedView" class="hidden">
-
-  <div class="switch-box">
-    <button onclick="showStartView()">Zurück zur Startseite</button>
-  </div>
 
   <section class="card success">
-    <h2>Live-Vergleich: Klassisch vs. IGF</h2>
+    <h2>Vergleich: Klassisch vs. IGF-konform</h2>
     <p>
-      Hier wird das Framework praktisch sichtbar. Links steht eine klassische,
-      eher problematische Gamification-Ansicht. Rechts steht eine barriereärmere
-      IGF-Variante.
+      Der Vergleich zeigt, wie eine klassische Lern-App durch das IGF verändert werden kann.
     </p>
   </section>
 
@@ -267,10 +286,8 @@ button:focus {
       <div class="mini-card">
         <h4>Badge</h4>
         <p>🏆 Neues Abzeichen!</p>
-        <p class="small">Nur farblich und visuell hervorgehoben.</p>
+        <p class="small">Die Belohnung wird fast nur visuell gezeigt.</p>
       </div>
-
-      <button>Jetzt weiter</button>
     </div>
 
     <div class="phone good-example">
@@ -288,39 +305,139 @@ button:focus {
       </div>
 
       <div class="mini-card">
-        <h4>Aktuelle Lektion</h4>
-        <p>Brüche verstehen</p>
-        <button onclick="checkAnswer()">Weiterlernen</button>
-        <p id="feedback" class="feedback" aria-live="polite"></p>
-      </div>
-
-      <div class="mini-card">
         <h4>Audio-Optionen</h4>
         <p>🔊 Inhalte können vorgelesen werden.</p>
-        <label>
-          <input type="checkbox" checked>
-          Vorlesen aktiviert
-        </label>
       </div>
 
       <div class="mini-card">
         <h4>Deine Entwicklung</h4>
-        <p>Diese Woche</p>
-        <p>Mo ▂ Di ▃ Mi ▅ Do ▄ Fr ▆ So █</p>
+        <p>Persönlicher Fortschritt statt öffentlichem Ranking.</p>
         <p>⭐ Super! Dranbleiben!</p>
       </div>
     </div>
 
   </section>
 
-  <section class="card layer">
-    <h2>Was wurde durch das IGF verbessert?</h2>
+</section>
+
+<section id="demoView" class="hidden">
+
+  <div class="switch-box">
+    <button onclick="showStartView()">Zurück zur Startseite</button>
+  </div>
+
+  <section class="card success">
+    <h2>Interaktive IGF-Live-Demo</h2>
     <p>
-      Der feste Timer wurde entfernt. Statt eines öffentlichen Rankings wird
-      persönlicher Fortschritt angezeigt. Das Badge wird nicht nur visuell
-      vermittelt, sondern zusätzlich erklärt. Dadurch bleibt Gamification erhalten,
-      wirkt aber weniger ausschließend.
+      Hier können Entwickler ausprobieren, wie eine barriereärmere gamifizierte Lernansicht funktionieren kann.
     </p>
+  </section>
+
+  <section class="demo-layout">
+
+    <div class="demo-app">
+
+      <div class="app-header">
+        <h2>LernApp</h2>
+        <button class="icon-button" aria-label="Profil öffnen">👤</button>
+      </div>
+
+      <h3>Hallo Anna 👋</h3>
+      <p>Heute geht es um Brüche. Du kannst die Aufgabe ohne öffentlichen Vergleich lösen.</p>
+
+      <div class="mini-card">
+        <h4>Privater Timer</h4>
+        <div id="timer" class="timer-box">05:00</div>
+        <button onclick="extendTimer()">Zeit verlängern</button>
+        <button onclick="disableTimer()">Timer deaktivieren</button>
+      </div>
+
+      <div class="mini-card">
+        <h4>Dein Fortschritt</h4>
+        <p>Level 4 <span id="xpText" style="float:right;">320 / 500 XP</span></p>
+        <div class="progress">
+          <div id="xpBar" class="progress-bar">64%</div>
+        </div>
+        <p class="small">Nur du siehst deinen Fortschritt.</p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Aufgabe</h4>
+        <p>Welche Variante ist barriereärmer?</p>
+
+        <label class="quiz-option">
+          <input type="radio" name="answer" value="wrong">
+          Öffentliches Ranking mit allen Teilnehmenden
+        </label>
+
+        <label class="quiz-option">
+          <input type="radio" name="answer" value="right">
+          Persönlicher Fortschritt ohne Vergleichsdruck
+        </label>
+
+        <button onclick="checkAnswer()">Antwort prüfen</button>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </div>
+
+      <div class="mini-card">
+        <h4>Unterstützung</h4>
+
+        <label class="option-row">
+          <input type="checkbox" id="audioToggle" onchange="updateSupportText()">
+          Audio-Erklärung aktivieren
+        </label>
+
+        <label class="option-row">
+          <input type="checkbox" id="motionToggle" onchange="updateSupportText()">
+          Animationen reduzieren
+        </label>
+
+        <p id="supportText" class="small">
+          Unterstützung kann je nach Bedarf aktiviert werden.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="demo-panel">
+
+      <section class="card layer">
+        <h2>Was Entwickler hier sehen sollen</h2>
+        <p>
+          Diese Ansicht zeigt nicht nur ein fertiges Design, sondern macht die
+          IGF-Idee ausprobierbar. Entwickler können sehen, wie einzelne Mechaniken
+          angepasst werden.
+        </p>
+      </section>
+
+      <section class="card layer">
+        <h2>Privater Timer</h2>
+        <p>
+          Der Timer ist nicht als Druckmittel gestaltet. Er kann verlängert oder
+          deaktiviert werden. Dadurch bleibt Orientierung erhalten, ohne unnötigen
+          Stress zu erzeugen.
+        </p>
+      </section>
+
+      <section class="card layer">
+        <h2>Persönlicher Fortschritt</h2>
+        <p>
+          Statt eines öffentlichen Leaderboards wird nur der eigene Fortschritt
+          angezeigt. Das unterstützt Motivation, ohne Nutzerinnen und Nutzer
+          gegeneinander auszuspielen.
+        </p>
+      </section>
+
+      <section class="card layer">
+        <h2>Multimodales Feedback</h2>
+        <p>
+          Rückmeldungen werden als Text ausgegeben und nicht nur durch Farbe,
+          Animation oder Symbole vermittelt. So bleibt die Information besser zugänglich.
+        </p>
+      </section>
+
+    </div>
+
   </section>
 
 </section>
@@ -328,21 +445,66 @@ button:focus {
 </main>
 
 <script>
-function showGamifiedView() {
+function showDemoView() {
   document.getElementById("startseite").classList.add("hidden");
-  document.getElementById("gamifiedView").classList.remove("hidden");
+  document.getElementById("demoView").classList.remove("hidden");
   window.scrollTo(0, 0);
 }
 
 function showStartView() {
-  document.getElementById("gamifiedView").classList.add("hidden");
+  document.getElementById("demoView").classList.add("hidden");
   document.getElementById("startseite").classList.remove("hidden");
   window.scrollTo(0, 0);
 }
 
+function extendTimer() {
+  document.getElementById("timer").textContent = "10:00";
+}
+
+function disableTimer() {
+  document.getElementById("timer").textContent = "Kein Zeitlimit";
+}
+
 function checkAnswer() {
+  const answers = document.getElementsByName("answer");
   const feedback = document.getElementById("feedback");
-  feedback.textContent = "Gut gemacht. Die IGF-Ansicht nutzt persönlichen Fortschritt, Textfeedback und optionale Unterstützung statt Druck und Vergleich.";
+  const xpBar = document.getElementById("xpBar");
+  const xpText = document.getElementById("xpText");
+
+  let selected = "";
+
+  for (const answer of answers) {
+    if (answer.checked) {
+      selected = answer.value;
+    }
+  }
+
+  if (selected === "right") {
+    feedback.textContent = "Richtig. Persönlicher Fortschritt ist barriereärmer als ein öffentliches Ranking.";
+    xpBar.style.width = "78%";
+    xpBar.textContent = "78%";
+    xpText.textContent = "390 / 500 XP";
+  } else if (selected === "wrong") {
+    feedback.textContent = "Noch nicht ganz. Ein öffentliches Ranking kann Vergleichsdruck erzeugen.";
+  } else {
+    feedback.textContent = "Bitte wähle zuerst eine Antwort aus.";
+  }
+}
+
+function updateSupportText() {
+  const audio = document.getElementById("audioToggle").checked;
+  const motion = document.getElementById("motionToggle").checked;
+  const text = document.getElementById("supportText");
+
+  if (audio && motion) {
+    text.textContent = "Audio-Erklärung ist aktiv. Animationen sind reduziert.";
+  } else if (audio) {
+    text.textContent = "Audio-Erklärung ist aktiv. Inhalte werden zusätzlich erklärend unterstützt.";
+  } else if (motion) {
+    text.textContent = "Animationen sind reduziert. Die Ansicht vermeidet unnötige Bewegung.";
+  } else {
+    text.textContent = "Unterstützung kann je nach Bedarf aktiviert werden.";
+  }
 }
 </script>
 

@@ -1,225 +1,338 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGF-Prototyp</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IGF Live-Demo</title>
 
 <style>
+:root {
+  --dark: #0f172a;
+  --green: #15803d;
+  --green-light: #dcfce7;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --purple: #7e22ce;
+  --purple-light: #f3e8ff;
+  --yellow: #ca8a04;
+  --yellow-light: #fef9c3;
+  --gray: #f8fafc;
+  --text: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
-  background: #f4f4f4;
-  color: #222;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+  color: var(--text);
+  line-height: 1.6;
 }
 
 header {
-  background: #263238;
+  background: var(--dark);
   color: white;
-  padding: 2rem;
-  text-align: center;
-}
-
-main {
-  max-width: 1150px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-
-.layer {
-  border-left: 8px solid #455a64;
-}
-
-.success {
-  background: #e8f5e9;
-  border-left: 8px solid #66bb6a;
-}
-
-.warning {
-  background: #fff3cd;
-  border-left: 8px solid #ffca28;
-}
-
-button {
-  padding: 0.9rem 1.1rem;
-  border: none;
-  border-radius: 10px;
-  background: #455a64;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  margin: 0.3rem;
-}
-
-button:focus, input:focus {
-  outline: 4px solid #ffb300;
-}
-
-.switch-box {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-.hidden {
-  display: none;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.4rem 0.7rem;
-  border-radius: 20px;
-  background: #e0e0e0;
-  margin: 0.2rem;
-}
-
-.comparison {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.phone {
-  width: 320px;
-  min-height: 600px;
-  background: white;
-  border: 12px solid #222;
-  border-radius: 36px;
-  padding: 1.2rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-}
-
-.phone h2 {
-  text-align: center;
-  margin-top: 0;
-}
-
-.bad-example {
-  border-color: #7a1f1f;
-}
-
-.good-example {
-  border-color: #1f5f9f;
-}
-
-.mini-card {
-  background: #f8f9fa;
-  border-radius: 14px;
-  padding: 1rem;
-  margin: 1rem 0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.12);
-}
-
-.danger {
-  background: #ffe5e5;
-  border-left: 6px solid #c62828;
-}
-
-.progress {
-  background: #ddd;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 28px;
-}
-
-.progress-bar {
-  width: 64%;
-  height: 100%;
-  background: #1976d2;
-  color: white;
-  text-align: center;
-  line-height: 28px;
-}
-
-.small {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.demo-layout {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.demo-app {
-  width: 360px;
-  background: white;
-  border: 12px solid #111;
-  border-radius: 38px;
-  padding: 1.3rem;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-}
-
-.demo-panel {
-  flex: 1;
-  min-width: 280px;
-}
-
-.app-header {
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.icon-button {
-  background: #e3f2fd;
-  color: #0d47a1;
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #4ade80;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+}
+
+nav a:last-child {
+  color: #4ade80;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.back {
+  color: var(--green);
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.phone {
+  background: white;
+  border: 14px solid #111827;
+  border-radius: 42px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.phone-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu,
+.profile {
+  background: var(--blue-light);
+  border: none;
   border-radius: 50%;
   width: 44px;
   height: 44px;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
 
-.option-row {
-  background: #f1f5f8;
-  border-radius: 12px;
-  padding: 0.8rem;
-  margin: 0.7rem 0;
+.app-card {
+  background: white;
+  border-radius: 18px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1px solid #e5e7eb;
+}
+
+.app-card h3 {
+  margin-top: 0;
+}
+
+.timer-display {
+  font-size: 2.6rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--green);
+  background: var(--green-light);
+  padding: 1rem;
+  border-radius: 14px;
+  margin: 1rem 0;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:focus,
+input:focus {
+  outline: 4px solid #facc15;
+}
+
+.btn-green {
+  background: var(--green-light);
+  color: var(--green);
+}
+
+.btn-dark {
+  background: var(--dark);
+  color: white;
+  width: 100%;
+}
+
+.btn-light {
+  background: #f1f5f9;
+  color: var(--dark);
+}
+
+.progress {
+  background: #d1d5db;
+  height: 26px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 64%;
+  height: 100%;
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  line-height: 26px;
+  font-weight: bold;
 }
 
 .quiz-option {
   display: block;
-  background: #eef2f3;
   padding: 0.8rem;
-  border-radius: 10px;
+  background: #f1f5f9;
+  border: 2px solid transparent;
+  border-radius: 12px;
   margin: 0.6rem 0;
 }
 
+.quiz-option.selected {
+  border-color: var(--green);
+  background: var(--green-light);
+}
+
 .feedback {
-  font-weight: bold;
+  display: none;
   margin-top: 1rem;
-}
-
-.timer-box {
-  font-size: 1.4rem;
-  font-weight: bold;
-  background: #e3f2fd;
-  padding: 0.8rem;
+  padding: 1rem;
   border-radius: 12px;
-  text-align: center;
+  background: var(--green-light);
+  color: var(--green);
+  font-weight: bold;
 }
 
-@media (max-width: 760px) {
-  .phone, .demo-app {
-    width: 88%;
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+}
+
+.switch {
+  width: 48px;
+  height: 26px;
+  appearance: none;
+  background: #cbd5e1;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+}
+
+.switch:checked {
+  background: var(--green);
+}
+
+.switch::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: 0.25s;
+}
+
+.switch:checked::before {
+  left: 25px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.10);
+  border-left: 8px solid var(--green);
+}
+
+.info-card h2 {
+  margin-top: 0;
+  color: var(--green);
+}
+
+.info-card.blue {
+  border-left-color: var(--blue);
+}
+
+.info-card.blue h2 {
+  color: var(--blue);
+}
+
+.info-card.purple {
+  border-left-color: var(--purple);
+}
+
+.info-card.purple h2 {
+  color: var(--purple);
+}
+
+.info-card.yellow {
+  border-left-color: var(--yellow);
+}
+
+.info-card.yellow h2 {
+  color: var(--yellow);
+}
+
+.bottom-note {
+  margin-top: 2rem;
+  background: var(--blue-light);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bottom-note strong {
+  color: var(--blue);
+}
+
+.reduced-motion * {
+  transition: none !important;
+  animation: none !important;
+}
+
+@media (max-width: 900px) {
+  header {
+    display: block;
+    text-align: center;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  nav {
+    margin-top: 1rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0.4rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phone {
+    width: 100%;
   }
 }
 </style>
@@ -228,283 +341,266 @@ button:focus, input:focus {
 <body>
 
 <header>
-  <h1>Inclusive Gamification Framework</h1>
-  <p>Ein Prototyp zur Verbindung von Gamification, Barrierefreiheit und User Experience</p>
+  <div class="logo"><span>◎</span> IGF</div>
+  <nav>
+    <a href="#timerCard">Privater Timer</a>
+    <a href="#progressCard">Fortschritt</a>
+    <a href="#quizCard">Aufgabe</a>
+    <a href="#supportCard">Unterstützung</a>
+  </nav>
 </header>
 
 <main>
 
-<section id="startseite">
+<div class="back" onclick="history.back()">← Zurück zur Startseite</div>
 
-  <div class="switch-box">
-    <button onclick="showDemoView()">IGF-Live-Demo öffnen</button>
+<h1>Interaktive IGF-Live-Demo</h1>
+<p class="intro">
+  Hier können Entwickler ausprobieren, wie eine barriereärmere gamifizierte Lernansicht funktionieren kann.
+</p>
+
+<section class="demo-grid">
+
+  <div class="phone" aria-label="Interaktive Lern-App">
+
+    <div class="phone-top">
+      <button class="menu" onclick="showMessage('Menü geöffnet. Hier könnten Einstellungen oder Hilfe liegen.')">☰</button>
+      <button class="profile" onclick="showMessage('Profil geöffnet. Der Fortschritt bleibt privat sichtbar.')">👤</button>
+    </div>
+
+    <h2>Hallo Anna 👋</h2>
+    <p>
+      Heute geht es um Brüche. Du kannst die Aufgabe ohne öffentlichen Vergleich lösen.
+    </p>
+
+    <section class="app-card" id="timerCard">
+      <h3>⏱ 1. Privater Timer</h3>
+      <div id="timer" class="timer-display">05:00</div>
+      <button class="btn-green" onclick="startTimer()">Start</button>
+      <button class="btn-light" onclick="extendTimer()">Zeit verlängern</button>
+      <button class="btn-light" onclick="disableTimer()">Timer deaktivieren</button>
+    </section>
+
+    <section class="app-card" id="progressCard">
+      <h3>📊 2. Dein Fortschritt</h3>
+      <p>Level 4 <span id="xpText" style="float:right;">320 / 500 XP</span></p>
+      <div class="progress">
+        <div id="xpBar" class="progress-bar">64%</div>
+      </div>
+      <p>Nur du siehst deinen Fortschritt.</p>
+    </section>
+
+    <section class="app-card" id="quizCard">
+      <h3>❔ 3. Aufgabe</h3>
+      <p>Welche Variante ist barriereärmer?</p>
+
+      <label class="quiz-option" onclick="selectOption(this)">
+        <input type="radio" name="answer" value="wrong">
+        Öffentliches Ranking mit allen Teilnehmenden
+      </label>
+
+      <label class="quiz-option" onclick="selectOption(this)">
+        <input type="radio" name="answer" value="right">
+        Persönlicher Fortschritt ohne Vergleichsdruck
+      </label>
+
+      <button class="btn-dark" onclick="checkAnswer()">Antwort prüfen</button>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+    </section>
+
+    <section class="app-card" id="supportCard">
+      <h3>🎧 4. Unterstützung</h3>
+
+      <label class="toggle-row">
+        Audio-Erklärung aktivieren
+        <input class="switch" type="checkbox" id="audioToggle" onchange="updateSupport()">
+      </label>
+
+      <label class="toggle-row">
+        Animationen reduzieren
+        <input class="switch" type="checkbox" id="motionToggle" onchange="updateSupport()">
+      </label>
+
+      <p id="supportText">
+        Unterstützung kann je nach Bedarf aktiviert werden.
+      </p>
+    </section>
+
   </div>
 
-  <section class="card layer">
-    <h2>Was ist das IGF?</h2>
-    <p>
-      Das Inclusive Gamification Framework zeigt, wie Gamification so gestaltet werden kann,
-      dass sie motiviert, ohne Menschen durch Zeitdruck, Rankings oder rein visuelles Feedback auszuschließen.
-    </p>
-  </section>
+  <aside>
 
-  <section class="card layer">
-    <h2>Die drei Schichten</h2>
-    <p><span class="badge">Analyse</span> Barrieren erkennen</p>
-    <p><span class="badge">Adaption</span> Gamification-Elemente barriereärmer anpassen</p>
-    <p><span class="badge">Validierung</span> Nutzung prüfen und verbessern</p>
-  </section>
+    <section class="info-card">
+      <h2>Was Entwickler hier sehen sollen</h2>
+      <p>
+        Diese Ansicht zeigt nicht nur ein fertiges Design, sondern macht die IGF-Idee ausprobierbar.
+        Entwickler können sehen, wie einzelne Mechaniken angepasst werden.
+      </p>
+    </section>
 
-  <section class="card success">
-    <h2>Vergleich: Klassisch vs. IGF-konform</h2>
-    <p>
-      Der Vergleich zeigt, wie eine klassische Lern-App durch das IGF verändert werden kann.
-    </p>
-  </section>
+    <section class="info-card" id="explainTimer">
+      <h2>1. Privater Timer</h2>
+      <p>
+        Der Timer ist nicht als Druckmittel gestaltet. Er kann gestartet, verlängert oder deaktiviert werden.
+        Dadurch bleibt Orientierung erhalten, ohne unnötigen Stress zu erzeugen.
+      </p>
+    </section>
 
-  <section class="comparison">
+    <section class="info-card blue">
+      <h2>2. Persönlicher Fortschritt</h2>
+      <p>
+        Statt eines öffentlichen Leaderboards wird nur der eigene Fortschritt angezeigt.
+        Das unterstützt Motivation, ohne Nutzerinnen und Nutzer gegeneinander auszuspielen.
+      </p>
+    </section>
 
-    <div class="phone bad-example">
-      <h2>Klassisch</h2>
-      <h3>Hallo Anna 👋</h3>
-      <p>Schnell! Du hast nur noch 30 Sekunden.</p>
+    <section class="info-card purple">
+      <h2>3. Multimodales Feedback</h2>
+      <p>
+        Rückmeldungen werden als Text ausgegeben und nicht nur durch Farbe, Animation oder Symbole vermittelt.
+        So bleibt die Information besser zugänglich.
+      </p>
+    </section>
 
-      <div class="mini-card danger">
-        <h4>Timer</h4>
-        <p>00:30</p>
-      </div>
+    <section class="info-card yellow">
+      <h2>4. Unterstützung nach Bedarf</h2>
+      <p>
+        Audio-Erklärung und reduzierte Animationen können einzeln aktiviert werden.
+        Niemand wird gezwungen, alle Hilfen gleichzeitig zu nutzen.
+      </p>
+    </section>
 
-      <div class="mini-card">
-        <h4>Leaderboard</h4>
-        <ol>
-          <li>Max – 980 XP</li>
-          <li>Lisa – 870 XP</li>
-          <li>Anna – 320 XP</li>
-        </ol>
-      </div>
-
-      <div class="mini-card">
-        <h4>Badge</h4>
-        <p>🏆 Neues Abzeichen!</p>
-        <p class="small">Die Belohnung wird fast nur visuell gezeigt.</p>
-      </div>
-    </div>
-
-    <div class="phone good-example">
-      <h2>Inklusiv (IGF)</h2>
-      <h3>Hallo Anna 👋</h3>
-      <p>Schön, dass du weiter lernst. Du kannst in deinem Tempo arbeiten.</p>
-
-      <div class="mini-card">
-        <h4>Dein Fortschritt</h4>
-        <p>Level 4 <span style="float:right;">320 / 500 XP</span></p>
-        <div class="progress">
-          <div class="progress-bar">64%</div>
-        </div>
-        <p class="small">Nächstes Level: 180 XP</p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Audio-Optionen</h4>
-        <p>🔊 Inhalte können vorgelesen werden.</p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Deine Entwicklung</h4>
-        <p>Persönlicher Fortschritt statt öffentlichem Ranking.</p>
-        <p>⭐ Super! Dranbleiben!</p>
-      </div>
-    </div>
-
-  </section>
+  </aside>
 
 </section>
 
-<section id="demoView" class="hidden">
-
-  <div class="switch-box">
-    <button onclick="showStartView()">Zurück zur Startseite</button>
-  </div>
-
-  <section class="card success">
-    <h2>Interaktive IGF-Live-Demo</h2>
-    <p>
-      Hier können Entwickler ausprobieren, wie eine barriereärmere gamifizierte Lernansicht funktionieren kann.
-    </p>
-  </section>
-
-  <section class="demo-layout">
-
-    <div class="demo-app">
-
-      <div class="app-header">
-        <h2>LernApp</h2>
-        <button class="icon-button" aria-label="Profil öffnen">👤</button>
-      </div>
-
-      <h3>Hallo Anna 👋</h3>
-      <p>Heute geht es um Brüche. Du kannst die Aufgabe ohne öffentlichen Vergleich lösen.</p>
-
-      <div class="mini-card">
-        <h4>Privater Timer</h4>
-        <div id="timer" class="timer-box">05:00</div>
-        <button onclick="extendTimer()">Zeit verlängern</button>
-        <button onclick="disableTimer()">Timer deaktivieren</button>
-      </div>
-
-      <div class="mini-card">
-        <h4>Dein Fortschritt</h4>
-        <p>Level 4 <span id="xpText" style="float:right;">320 / 500 XP</span></p>
-        <div class="progress">
-          <div id="xpBar" class="progress-bar">64%</div>
-        </div>
-        <p class="small">Nur du siehst deinen Fortschritt.</p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Aufgabe</h4>
-        <p>Welche Variante ist barriereärmer?</p>
-
-        <label class="quiz-option">
-          <input type="radio" name="answer" value="wrong">
-          Öffentliches Ranking mit allen Teilnehmenden
-        </label>
-
-        <label class="quiz-option">
-          <input type="radio" name="answer" value="right">
-          Persönlicher Fortschritt ohne Vergleichsdruck
-        </label>
-
-        <button onclick="checkAnswer()">Antwort prüfen</button>
-        <p id="feedback" class="feedback" aria-live="polite"></p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Unterstützung</h4>
-
-        <label class="option-row">
-          <input type="checkbox" id="audioToggle" onchange="updateSupportText()">
-          Audio-Erklärung aktivieren
-        </label>
-
-        <label class="option-row">
-          <input type="checkbox" id="motionToggle" onchange="updateSupportText()">
-          Animationen reduzieren
-        </label>
-
-        <p id="supportText" class="small">
-          Unterstützung kann je nach Bedarf aktiviert werden.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="demo-panel">
-
-      <section class="card layer">
-        <h2>Was Entwickler hier sehen sollen</h2>
-        <p>
-          Diese Ansicht zeigt nicht nur ein fertiges Design, sondern macht die
-          IGF-Idee ausprobierbar. Entwickler können sehen, wie einzelne Mechaniken
-          angepasst werden.
-        </p>
-      </section>
-
-      <section class="card layer">
-        <h2>Privater Timer</h2>
-        <p>
-          Der Timer ist nicht als Druckmittel gestaltet. Er kann verlängert oder
-          deaktiviert werden. Dadurch bleibt Orientierung erhalten, ohne unnötigen
-          Stress zu erzeugen.
-        </p>
-      </section>
-
-      <section class="card layer">
-        <h2>Persönlicher Fortschritt</h2>
-        <p>
-          Statt eines öffentlichen Leaderboards wird nur der eigene Fortschritt
-          angezeigt. Das unterstützt Motivation, ohne Nutzerinnen und Nutzer
-          gegeneinander auszuspielen.
-        </p>
-      </section>
-
-      <section class="card layer">
-        <h2>Multimodales Feedback</h2>
-        <p>
-          Rückmeldungen werden als Text ausgegeben und nicht nur durch Farbe,
-          Animation oder Symbole vermittelt. So bleibt die Information besser zugänglich.
-        </p>
-      </section>
-
-    </div>
-
-  </section>
-
+<section class="bottom-note">
+  <div style="font-size:2rem;">ℹ️</div>
+  <p>
+    <strong>Warum ist das wichtig?</strong><br>
+    Das IGF reduziert unnötige Barrieren, erhält aber motivierende Elemente wie Fortschritt,
+    Feedback und Erfolgserlebnisse.
+  </p>
 </section>
 
 </main>
 
 <script>
-function showDemoView() {
-  document.getElementById("startseite").classList.add("hidden");
-  document.getElementById("demoView").classList.remove("hidden");
-  window.scrollTo(0, 0);
+let timeLeft = 300;
+let timerInterval = null;
+let timerDisabled = false;
+
+function formatTime(seconds) {
+  const min = Math.floor(seconds / 60);
+  const sec = seconds % 60;
+  return String(min).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
 }
 
-function showStartView() {
-  document.getElementById("demoView").classList.add("hidden");
-  document.getElementById("startseite").classList.remove("hidden");
-  window.scrollTo(0, 0);
+function startTimer() {
+  if (timerDisabled) {
+    showMessage("Der Timer ist deaktiviert. Du kannst ohne Zeitdruck weiterarbeiten.");
+    return;
+  }
+
+  clearInterval(timerInterval);
+
+  timerInterval = setInterval(function() {
+    if (timeLeft > 0) {
+      timeLeft--;
+      document.getElementById("timer").textContent = formatTime(timeLeft);
+    } else {
+      clearInterval(timerInterval);
+      showMessage("Die Zeit ist abgelaufen. Im IGF wäre jetzt eine Verlängerung möglich.");
+    }
+  }, 1000);
+
+  showMessage("Timer gestartet. Er dient nur zur Orientierung.");
 }
 
 function extendTimer() {
-  document.getElementById("timer").textContent = "10:00";
+  if (timerDisabled) {
+    timerDisabled = false;
+  }
+
+  timeLeft += 300;
+  document.getElementById("timer").textContent = formatTime(timeLeft);
+  showMessage("Die Zeit wurde verlängert. Das reduziert unnötigen Druck.");
 }
 
 function disableTimer() {
+  clearInterval(timerInterval);
+  timerDisabled = true;
   document.getElementById("timer").textContent = "Kein Zeitlimit";
+  showMessage("Der Timer wurde deaktiviert. Die Aufgabe kann im eigenen Tempo gelöst werden.");
+}
+
+function selectOption(label) {
+  document.querySelectorAll(".quiz-option").forEach(function(option) {
+    option.classList.remove("selected");
+  });
+
+  label.classList.add("selected");
+  label.querySelector("input").checked = true;
 }
 
 function checkAnswer() {
-  const answers = document.getElementsByName("answer");
+  const selected = document.querySelector('input[name="answer"]:checked');
   const feedback = document.getElementById("feedback");
   const xpBar = document.getElementById("xpBar");
   const xpText = document.getElementById("xpText");
 
-  let selected = "";
+  feedback.style.display = "block";
 
-  for (const answer of answers) {
-    if (answer.checked) {
-      selected = answer.value;
-    }
+  if (!selected) {
+    feedback.textContent = "Bitte wähle zuerst eine Antwort aus.";
+    feedback.style.background = "#fef9c3";
+    feedback.style.color = "#854d0e";
+    return;
   }
 
-  if (selected === "right") {
-    feedback.textContent = "Richtig. Persönlicher Fortschritt ist barriereärmer als ein öffentliches Ranking.";
+  if (selected.value === "right") {
+    feedback.textContent = "Richtig! Persönlicher Fortschritt ist barriereärmer als ein öffentliches Ranking.";
+    feedback.style.background = "#dcfce7";
+    feedback.style.color = "#15803d";
+
     xpBar.style.width = "78%";
     xpBar.textContent = "78%";
     xpText.textContent = "390 / 500 XP";
-  } else if (selected === "wrong") {
-    feedback.textContent = "Noch nicht ganz. Ein öffentliches Ranking kann Vergleichsdruck erzeugen.";
   } else {
-    feedback.textContent = "Bitte wähle zuerst eine Antwort aus.";
+    feedback.textContent = "Noch nicht ganz. Ein öffentliches Ranking kann Vergleichsdruck erzeugen.";
+    feedback.style.background = "#fee2e2";
+    feedback.style.color = "#991b1b";
   }
 }
 
-function updateSupportText() {
+function updateSupport() {
   const audio = document.getElementById("audioToggle").checked;
   const motion = document.getElementById("motionToggle").checked;
   const text = document.getElementById("supportText");
 
+  document.body.classList.toggle("reduced-motion", motion);
+
   if (audio && motion) {
-    text.textContent = "Audio-Erklärung ist aktiv. Animationen sind reduziert.";
+    text.textContent = "Audio-Erklärung ist aktiv. Animationen wurden reduziert.";
+    showMessage("Audio-Erklärung und reduzierte Animationen sind aktiv.");
   } else if (audio) {
     text.textContent = "Audio-Erklärung ist aktiv. Inhalte werden zusätzlich erklärend unterstützt.";
+    showMessage("Audio-Erklärung aktiviert.");
   } else if (motion) {
-    text.textContent = "Animationen sind reduziert. Die Ansicht vermeidet unnötige Bewegung.";
+    text.textContent = "Animationen wurden reduziert. Die Ansicht vermeidet unnötige Bewegung.";
+    showMessage("Animationen reduziert.");
   } else {
     text.textContent = "Unterstützung kann je nach Bedarf aktiviert werden.";
+    showMessage("Unterstützungen wurden zurückgesetzt.");
   }
+}
+
+function showMessage(message) {
+  const feedback = document.getElementById("feedback");
+  feedback.style.display = "block";
+  feedback.style.background = "#dbeafe";
+  feedback.style.color = "#1e40af";
+  feedback.textContent = message;
 }
 </script>
 
